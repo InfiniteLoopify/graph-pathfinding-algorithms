@@ -65,7 +65,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Cost Finding Algorithms for Graphs such as Shortest Path Algorithms (BellmanFord, Dijkstra, Floyd) and Minimum Spanning Tree Algorithms (Kruskal, Prims).
+Cost Finding Algorithms for Graphs such as Shortest Path Algorithms ([BellmanFord](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm), [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm), [Floyd](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)) and Minimum Spanning Tree Algorithms ([Kruskal](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm), [Prims](https://en.wikipedia.org/wiki/Prim%27s_algorithm)).
 
 
 ![Screenshot](images/screenshot-input.png)

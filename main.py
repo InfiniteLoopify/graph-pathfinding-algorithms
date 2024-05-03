@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-from algorithms.helpers.filer import File
+from algorithms.helpers.file_handler import File
 from algorithms.helpers.gui import Gui
 
 
