@@ -276,7 +276,7 @@ Project Link: [https://github.com/InfiniteLoopify/graph-pathfinding-algorithms](
 [Fastapi-url]: https://fastapi.tiangolo.com/
 [Pyqt-shield]: https://img.shields.io/badge/PyQt-217346?style=for-the-badge&logo=qt&logoColor=white
 [Pyqt-url]: https://www.riverbankcomputing.com/software/pyqt/
-[Tkinter-shield]: https://img.shields.io/badge/tkinter-000088?style=for-the-badge&logo=python&logoColor=yellow
+[Tkinter-shield]: https://img.shields.io/badge/tkinter-000088?style=for-the-badge&logo=robinhood&logoColor=cccccc
 [Tkinter-url]: https://docs.python.org/3/library/tkinter.html
 [Alpine.js-shield]: https://img.shields.io/badge/alpine.js-2d3441?style=for-the-badge&logo=alpinedotjs&logoColor=%2377c1d2
 [Alpine.js-url]: https://alpinejs.dev/
@@ -316,7 +316,7 @@ Project Link: [https://github.com/InfiniteLoopify/graph-pathfinding-algorithms](
 [Jupyter-url]: https://jupyter.org/
 [Keras-shield]: https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white
 [Keras-url]: https://keras.io/
-[Matplotlib-shield]: https://img.shields.io/badge/Matplotlib-%23cccccc.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
+[Matplotlib-shield]: https://img.shields.io/badge/Matplotlib-%23cccccc.svg?style=for-the-badge&logoColor=black&logo=coronaengine
 [Matplotlib-url]: https://matplotlib.org/
 [Numpy-shield]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white
 [Numpy-url]: https://numpy.org/
