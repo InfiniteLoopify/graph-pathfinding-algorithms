@@ -1,8 +1,8 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-from Filer import File
-import Gui
+from algorithms.helpers.filer import File
+from algorithms.helpers.gui import Gui
 
 
 def printLine():
@@ -15,23 +15,23 @@ def importAlgo(algoChoose):
     printLine()
     print("Algo Used: ", algoList[algoChoose])
     if algoChoose == 0:
-        import Prims as algo
+        from algorithms import prims as algo
 
         algoObj = algo.Prims()
     elif algoChoose == 1:
-        import Kruskal as algo
+        from algorithms import kruskal as algo
 
         algoObj = algo.Kruskal()
     elif algoChoose == 2:
-        import Dijkstra as algo
+        from algorithms import dijkstra as algo
 
         algoObj = algo.Dijkstra()
     elif algoChoose == 3:
-        import BellmanFord as algo
+        from algorithms import bellman_ford as algo
 
         algoObj = algo.BellmanFord()
     elif algoChoose == 4:
-        import Floyd as algo
+        from algorithms import floyd as algo
 
         algoObj = algo.Floyd()
     else:
@@ -108,13 +108,11 @@ def clusterCoefficient(fileObj):
                     link += 1
             visited.remove(j)
 
-        # link / ((degree * (degree - 1)) / 2)
         maxLink = (degree * (degree - 1)) / 2
         if maxLink == 0:
             maxLink = 1
         lcc = link / maxLink
         lccFinal += lcc
-        # print(degree, " ", link, " ", maxLink, " ", lcc)
 
     lccFinal /= fileObj.nodesCount
     return lccFinal
@@ -135,7 +133,7 @@ def main():
     showWeights = True
 
     # create user input gui
-    gui = Gui.Gui()
+    gui = Gui()
     gui.guiCreate()
     fileName = "files/" + gui.guiArray[0]
     algoIndex = gui.guiArray[1]
@@ -194,7 +192,7 @@ def main():
             edge_labels=labels,
             font_size=6,
             alpha=0.4,
-            font_weight=str(0.1),
+            font_weight=0.1,
             label_pos=0.5,
         )
 
