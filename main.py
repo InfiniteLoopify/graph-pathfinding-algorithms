@@ -1,6 +1,5 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-import math
 
 from Filer import File
 import Gui
@@ -17,18 +16,23 @@ def importAlgo(algoChoose):
     print("Algo Used: ", algoList[algoChoose])
     if algoChoose == 0:
         import Prims as algo
+
         algoObj = algo.Prims()
     elif algoChoose == 1:
         import Kruskal as algo
+
         algoObj = algo.Kruskal()
     elif algoChoose == 2:
         import Dijkstra as algo
+
         algoObj = algo.Dijkstra()
     elif algoChoose == 3:
         import BellmanFord as algo
+
         algoObj = algo.BellmanFord()
     elif algoChoose == 4:
         import Floyd as algo
+
         algoObj = algo.Floyd()
     else:
         print("invalid Module index passed")
@@ -38,8 +42,8 @@ def importAlgo(algoChoose):
 
 def operateHex(color, val):
     color = (hex(int(color, base=16) + val))[2:]
-    color = ('0' if len(color) <= 1 else '') + color
-    color = ('0' if len(color) <= 1 else '') + color
+    color = ("0" if len(color) <= 1 else "") + color
+    color = ("0" if len(color) <= 1 else "") + color
     return color
 
 
@@ -47,9 +51,9 @@ def addEdges(graph, fileObj, selectedPath, showAllEdges):
 
     edge_width = []
     default_width = 0.4
-    redColor = '#ff0000'
-    color = ['00', 'ff']
-    changeStep = int(255 / ((fileObj.nodesCount ** 2) / 2))
+    redColor = "#ff0000"
+    color = ["00", "ff"]
+    changeStep = int(255 / ((fileObj.nodesCount**2) / 2))
     if not changeStep:
         changeStep = 1
 
@@ -58,17 +62,14 @@ def addEdges(graph, fileObj, selectedPath, showAllEdges):
 
             if [i, j] in selectedPath or [j, i] in selectedPath:
                 edge_width.append(default_width * 1.5)
-                graph.add_edge(
-                    i, j, weight=fileObj.graph[i][j], color=redColor)
+                graph.add_edge(i, j, weight=fileObj.graph[i][j], color=redColor)
 
             elif fileObj.graph[i][j] != 0 and showAllEdges:
-                tempColor = "#%s%s%s%s" % (
-                    color[0], color[0], color[0], color[1])
+                tempColor = "#%s%s%s%s" % (color[0], color[0], color[0], color[1])
                 edge_width.append(default_width)
-                graph.add_edge(
-                    i, j, weight=fileObj.graph[i][j], color=tempColor)
+                graph.add_edge(i, j, weight=fileObj.graph[i][j], color=tempColor)
 
-                if not (color[0] == '80' or color[1] == '80'):
+                if not (color[0] == "80" or color[1] == "80"):
                     color[0] = operateHex(color[0], changeStep)
                     color[1] = operateHex(color[1], -changeStep)
     return edge_width
@@ -80,13 +81,12 @@ def addNodes(G, fileObj):
     node_edge_width = []
     for i in range(fileObj.nodesCount):
         if i == fileObj.startNode:
-            node_edge_color.append('#000044')
-            node_edge_width.append('1.2')
+            node_edge_color.append("#000044")
+            node_edge_width.append(1.2)
         else:
-            node_edge_color.append('#5555ff')
-            node_edge_width.append('0.8')
-        G.add_node(
-            i, pos=(fileObj.nodesCordinate[i][0], fileObj.nodesCordinate[i][1]))
+            node_edge_color.append("#5555ff")
+            node_edge_width.append(0.8)
+        G.add_node(i, pos=(fileObj.nodesCordinate[i][0], fileObj.nodesCordinate[i][1]))
     return node_edge_color, node_edge_width
 
 
@@ -149,7 +149,8 @@ def main():
     # apply algo
     algoObj = importAlgo(algoIndex)
     selectedPath = algoObj.runAlgorithm(
-        fileObj.graph, fileObj.nodesCount, fileObj.startNode)
+        fileObj.graph, fileObj.nodesCount, fileObj.startNode
+    )
 
     # print selected path
     printLine()
@@ -159,8 +160,10 @@ def main():
     # print(selectedPath)
 
     printLine()
-    print("Total Edge Cost: %0.2f" % calculateCost(
-        selectedPath, fileObj.graph, fileObj.nodesCount))
+    print(
+        "Total Edge Cost: %0.2f"
+        % calculateCost(selectedPath, fileObj.graph, fileObj.nodesCount)
+    )
 
     # display local clustering coefficient
     localClusterVal = clusterCoefficient(fileObj)
@@ -178,19 +181,36 @@ def main():
     edge_width = addEdges(G, fileObj, selectedPath, showAllEdges)
 
     # set position and edge variables
-    pos = nx.get_node_attributes(G, 'pos')
+    pos = nx.get_node_attributes(G, "pos")
     edges = G.edges()
-    edge_color = [G[u][v]['color'] for u, v in edges]
+    edge_color = [G[u][v]["color"] for u, v in edges]
 
     # show edge weights if variable true
     if showWeights:
-        labels = nx.get_edge_attributes(G, 'weight')
+        labels = nx.get_edge_attributes(G, "weight")
         nx.draw_networkx_edge_labels(
-            G, pos, edge_labels=labels, font_size=6, alpha=0.4, font_weight=0.1, label_pos=0.5)
+            G,
+            pos,
+            edge_labels=labels,
+            font_size=6,
+            alpha=0.4,
+            font_weight=str(0.1),
+            label_pos=0.5,
+        )
 
     # draw the graph with desired attributes
-    nx.draw(G, pos, with_labels=True, node_size=140, font_size=7,
-            node_color='#ccccff', linewidths=node_edge_width, edgecolors=node_edge_color, width=edge_width, edge_color=edge_color)
+    nx.draw(
+        G,
+        pos,
+        with_labels=True,
+        node_size=140,
+        font_size=7,
+        node_color="#ccccff",
+        linewidths=node_edge_width,
+        edgecolors=node_edge_color,
+        width=edge_width,
+        edge_color=edge_color,
+    )
 
     # display graph screen
     plt.show()
